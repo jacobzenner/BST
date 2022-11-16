@@ -256,13 +256,18 @@ void BST::remove(const TElement element, TNodePtr& tree)
 
 TNodePtr BST::search(const TElement element, const TNodePtr tree)const
 {
+    TNodePtr temp;
     if(tree == nullptr)
     {
         cout << "Element " << element << " was not found in the search" << endl;
-        return tree;
+        temp = tree;
+        return temp;
     }
     else if(element == tree->element)
-        return tree;
+    {
+        temp = tree;
+        return temp;
+    }
     else if(element < tree->element)
         return search(element, tree->left);
     else if(element > tree->element)
